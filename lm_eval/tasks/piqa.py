@@ -9,8 +9,9 @@ actually learning about the world?
 
 Homepage: https://yonatanbisk.com/piqa/
 """
+import inspect
 from lm_eval.base import MultipleChoiceTask
-
+import lm_eval.datasets.piqa.piqa
 
 _CITATION = """
 @inproceedings{Bisk2020,
@@ -28,7 +29,7 @@ _CITATION = """
 
 class PiQA(MultipleChoiceTask):
     VERSION = 0
-    DATASET_PATH = "piqa"
+    DATASET_PATH = inspect.getfile(lm_eval.datasets.piqa.piqa)
     DATASET_NAME = None
 
     def has_training_docs(self):

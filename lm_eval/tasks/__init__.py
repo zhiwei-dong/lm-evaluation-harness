@@ -327,8 +327,8 @@ TASK_REGISTRY = {
     "csatqa_li": csatqa.LI,
     # Requires manual download
     # Requires manual download of data.
-    # "storycloze_2016": storycloze.StoryCloze2016,
-    # "storycloze_2018": storycloze.StoryCloze2018,
+    "storycloze_2016": storycloze.StoryCloze2016,
+    "storycloze_2018": storycloze.StoryCloze2018,
     # "sat": sat.SATAnalogies,
     **xcopa.construct_tasks(),
     **bigbench.create_all_tasks(),

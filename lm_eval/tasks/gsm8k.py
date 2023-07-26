@@ -19,6 +19,8 @@ Homepage: https://github.com/openai/grade-school-math
 import re
 from lm_eval.base import Task, rf
 from lm_eval.metrics import mean
+import inspect
+import lm_eval.datasets.gsm8k.gsm8k
 
 
 _CITATION = """
@@ -39,7 +41,7 @@ INVALID_ANS = "[invalid]"
 
 class GradeSchoolMath8K(Task):
     VERSION = 0
-    DATASET_PATH = "gsm8k"
+    DATASET_PATH = inspect.getfile(lm_eval.datasets.gsm8k.gsm8k)
     DATASET_NAME = "main"
 
     def has_training_docs(self):

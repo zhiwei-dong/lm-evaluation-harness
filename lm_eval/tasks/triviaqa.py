@@ -10,9 +10,10 @@ high quality distant supervision for answering the questions.
 Homepage: https://nlp.cs.washington.edu/triviaqa/
 """
 import inspect
-import string
+import lm_eval.datasets.triviaqa.triviaqa
 from lm_eval.base import Task, rf
 from lm_eval.metrics import mean
+
 
 _CITATION = """
 @InProceedings{JoshiTriviaQA2017,
@@ -29,7 +30,7 @@ _CITATION = """
 
 class TriviaQA(Task):
     VERSION = 2
-    DATASET_PATH = "trivia_qa"
+    DATASET_PATH = inspect.getfile(lm_eval.datasets.triviaqa.triviaqa)
     DATASET_NAME = "rc.nocontext"
 
     def has_training_docs(self):

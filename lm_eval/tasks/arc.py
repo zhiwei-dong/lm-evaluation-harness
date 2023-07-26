@@ -12,6 +12,8 @@ a co-occurrence method fail to answer correctly) and an Easy Set of 5,197 questi
 
 Homepage: https://allenai.org/data/arc
 """
+import inspect
+import lm_eval.datasets.ai2_arc.ai2_arc
 from lm_eval.base import MultipleChoiceTask
 
 
@@ -28,7 +30,7 @@ _CITATION = """
 
 class ARCEasy(MultipleChoiceTask):
     VERSION = 0
-    DATASET_PATH = "ai2_arc"
+    DATASET_PATH = inspect.getfile(lm_eval.datasets.ai2_arc.ai2_arc)
     DATASET_NAME = "ARC-Easy"
 
     def has_training_docs(self):
@@ -75,5 +77,5 @@ class ARCEasy(MultipleChoiceTask):
 
 
 class ARCChallenge(ARCEasy):
-    DATASET_PATH = "ai2_arc"
+    DATASET_PATH = inspect.getfile(lm_eval.datasets.ai2_arc.ai2_arc)
     DATASET_NAME = "ARC-Challenge"

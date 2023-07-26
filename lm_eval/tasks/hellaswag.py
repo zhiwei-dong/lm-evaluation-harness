@@ -14,8 +14,9 @@ state-of-the-art models.
 Homepage: https://rowanzellers.com/hellaswag/
 """
 import re
+import inspect
 from lm_eval.base import MultipleChoiceTask
-
+import lm_eval.datasets.hellaswag.hellaswag
 
 _CITATION = """
 @inproceedings{zellers2019hellaswag,
@@ -29,8 +30,8 @@ _CITATION = """
 
 class HellaSwag(MultipleChoiceTask):
     VERSION = 0
-    DATASET_PATH = "hellaswag"
-    DATASET_NAME = None
+    DATASET_PATH = inspect.getfile(lm_eval.datasets.hellaswag.hellaswag)
+    DATASET_NAME = "hellaswag"
 
     def has_training_docs(self):
         return True

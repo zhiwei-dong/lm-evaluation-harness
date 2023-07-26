@@ -15,9 +15,10 @@ See: https://arxiv.org/abs/1806.02847
 Homepage: https://leaderboard.allenai.org/winogrande/submissions/public
 """
 import numpy as np
+import inspect
 from lm_eval.base import rf, Task
 from lm_eval.metrics import mean
-
+import lm_eval.datasets.winogrande.winogrande
 
 _CITATION = """
 @article{sakaguchi2019winogrande,
@@ -31,7 +32,7 @@ _CITATION = """
 
 class Winogrande(Task):
     VERSION = 0
-    DATASET_PATH = "winogrande"
+    DATASET_PATH = inspect.getfile(lm_eval.datasets.winogrande.winogrande)
     DATASET_NAME = "winogrande_xl"
 
     answer_to_num = {"1": 0, "2": 1}

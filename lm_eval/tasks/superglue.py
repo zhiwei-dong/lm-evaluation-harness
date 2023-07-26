@@ -11,8 +11,10 @@ TODO: WSC requires free-form generation.
 """
 import numpy as np
 import sklearn
+import inspect
 import transformers.data.metrics.squad_metrics as squad_metrics
 from lm_eval.base import rf, Task
+import lm_eval.datasets.super_glue.super_glue
 from lm_eval.metrics import mean, acc_all, metric_max_over_ground_truths, yesno
 from lm_eval.utils import general_detokenize
 
@@ -34,7 +36,7 @@ _CITATION = """
 
 class BoolQ(Task):
     VERSION = 1
-    DATASET_PATH = "super_glue"
+    DATASET_PATH = inspect.getfile(lm_eval.datasets.super_glue.super_glue)
     DATASET_NAME = "boolq"
 
     def has_training_docs(self):
@@ -90,7 +92,7 @@ class BoolQ(Task):
 
 class CommitmentBank(Task):
     VERSION = 1
-    DATASET_PATH = "super_glue"
+    DATASET_PATH = inspect.getfile(lm_eval.datasets.super_glue.super_glue)
     DATASET_NAME = "cb"
 
     def has_training_docs(self):
@@ -159,7 +161,7 @@ class CommitmentBank(Task):
 
 class Copa(Task):
     VERSION = 0
-    DATASET_PATH = "super_glue"
+    DATASET_PATH = inspect.getfile(lm_eval.datasets.super_glue.super_glue)
     DATASET_NAME = "copa"
 
     def has_training_docs(self):
@@ -221,7 +223,7 @@ class Copa(Task):
 
 class MultiRC(Task):
     VERSION = 1
-    DATASET_PATH = "super_glue"
+    DATASET_PATH = inspect.getfile(lm_eval.datasets.super_glue.super_glue)
     DATASET_NAME = "multirc"
 
     def has_training_docs(self):
@@ -275,7 +277,7 @@ class MultiRC(Task):
 
 class ReCoRD(Task):
     VERSION = 0
-    DATASET_PATH = "super_glue"
+    DATASET_PATH = inspect.getfile(lm_eval.datasets.super_glue.super_glue)
     DATASET_NAME = "record"
 
     def has_training_docs(self):
@@ -368,7 +370,7 @@ class ReCoRD(Task):
 
 class WordsInContext(Task):
     VERSION = 0
-    DATASET_PATH = "super_glue"
+    DATASET_PATH = inspect.getfile(lm_eval.datasets.super_glue.super_glue)
     DATASET_NAME = "wic"
 
     def has_training_docs(self):
@@ -426,7 +428,7 @@ class SGWinogradSchemaChallenge(Task):
     VERSION = 0
     # Note: This implementation differs from Fig G.32 because this is the SuperGLUE,
     #       binary version of the task.
-    DATASET_PATH = "super_glue"
+    DATASET_PATH = inspect.getfile(lm_eval.datasets.super_glue.super_glue)
     DATASET_NAME = "wsc"
 
     def has_training_docs(self):

@@ -9,6 +9,8 @@ to choose the correct ending to a four-sentence story.
 Homepage: https://cs.rochester.edu/nlp/rocstories/
 """
 import numpy as np
+import inspect
+import lm_eval.datasets.story_cloze.story_cloze
 from lm_eval.base import rf, Task
 from lm_eval.metrics import mean
 
@@ -35,10 +37,10 @@ _CITATION = """
 
 class StoryCloze(Task):
     VERSION = 0
-    DATASET_PATH = "story_cloze"
+    DATASET_PATH = inspect.getfile(lm_eval.datasets.story_cloze.story_cloze)
     DATASET_NAME = None
 
-    def __init__(self, data_dir: str):
+    def __init__(self, data_dir='/data/zhangyunchen/datasets/story_cloze'):
         """
         StoryCloze is not publicly available. You must download the data by
         following https://cs.rochester.edu/nlp/rocstories/ and pass the folder

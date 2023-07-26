@@ -7,6 +7,8 @@ problem in natural language.
 
 Homepage: https://github.com/openai/gpt-3/tree/master/data
 """
+import inspect
+import lm_eval.datasets.arithmetic.arithmetic
 from lm_eval.base import Task, rf
 from lm_eval.metrics import mean
 
@@ -28,7 +30,7 @@ _CITATION = """
 
 class Arithmetic(Task):
     VERSION = 0
-    DATASET_PATH = "EleutherAI/arithmetic"
+    DATASET_PATH = inspect.getfile(lm_eval.datasets.arithmetic.arithmetic)
 
     def has_training_docs(self):
         return False
