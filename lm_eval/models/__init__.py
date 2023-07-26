@@ -4,6 +4,12 @@ from . import anthropic_llms
 from . import huggingface
 from . import textsynth
 from . import dummy
+from . import opt
+from . import gptj
+from . import gptneox
+from . import bloom
+from . import llama
+
 
 MODEL_REGISTRY = {
     "hf": gpt2.HFLM,
@@ -15,6 +21,11 @@ MODEL_REGISTRY = {
     "anthropic": anthropic_llms.AnthropicLM,
     "textsynth": textsynth.TextSynthLM,
     "dummy": dummy.DummyLM,
+    'opt': opt.OPTLM,
+    'gptj': gptj.GPTJLM,
+    'gptneox': gptneox.GPTNEOXLM,
+    'bloom': bloom.BLOOMLM,
+    'llama': llama.LLAMALM,
 }
 
 
